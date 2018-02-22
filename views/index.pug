@@ -1,0 +1,47 @@
+extends layout
+
+
+block appContent
+	div.form-group#nameInput
+		label(for='name') Name: 
+		input#user_name.form-control(type='text', placeholder='full name', name='name')
+		button.btn-submit.btn.btn-primary(type='submit') Submit
+
+	p#databaseNames.lead
+
+	table#user_table
+		thead
+			th Name
+		tbody
+
+	script.
+		$(function (){
+			var $user_table = $('#user_table')
+
+			$.ajax({
+				type:"GET",
+				url:"./api/visitors",
+				success: function(data) {
+					$.each(data, function (i, name) {
+						$user_table.append('<tr><td><a href="/user/">' + name + '</a></tr></td>')
+					})
+				}
+			})
+
+			$('.btn-submit').click( function(){
+				var name=$('#user_name').val()
+				if (name.length > 0){
+					$.ajax({
+						type:"POST",
+						url:"./api/visitors",
+						contentType:"application/json",
+						data: JSON.stringify({name: name }),
+						success: function (data) {
+							$user_table.append('<tr><td><a href="/user/">' + name + '</tr></td>')
+						}
+					})
+				}
+			})
+
+			$()
+		})

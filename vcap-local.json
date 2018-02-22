@@ -1,0 +1,12 @@
+{
+  "services": {
+    "cloudantNoSQLDB": [
+      {
+        "credentials": {
+          "url":"https://9830054d-5870-4297-8a3d-78e836de20c5-bluemix:49f5d19a2e37f1b27bc1c0801914f897fe3b7fab49a3f900d3044896234784b0@9830054d-5870-4297-8a3d-78e836de20c5-bluemix.cloudant.com"
+        },
+        "label": "cloudantNoSQLDB"
+      }
+    ]
+  }
+}

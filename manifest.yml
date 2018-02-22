@@ -1,0 +1,7 @@
+---
+applications:
+ - name: node-farid
+   random-route: true
+   memory: 256M
+   services:
+    - Cloudant NoSQL DB-ye
